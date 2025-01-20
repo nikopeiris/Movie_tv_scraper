@@ -27,7 +27,7 @@ def check_year(choice):
         try:
             year = int(input("Enter The Year(eg:2016):"))
             
-            if year <= current_year and year >= 1888:
+            if year <= current_year and year >= 1896:
                 break
             else:
                 print("\nPlease Enter a Valid Year!!!")
@@ -50,10 +50,10 @@ def scrape(year, choice):
     list = info_parsed.find_all("li", attrs={"class": "ipc-metadata-list-summary-item"})
 
     if choice == "tv_series":
-        print("/|Top 25 Tv Series From {}|\\\n".format(year))
+        print("/|Top {} Tv Series From {}|\\\n".format(len(list), year))
         tv(list)
     else:
-        print("/|Top 25 Movies From {}|\\\n".format(year))
+        print("/|Top {} Movies From {}|\\\n".format(len(list), year))
         movie(list)
     
     return
